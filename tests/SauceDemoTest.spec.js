@@ -1,10 +1,6 @@
-import { test, chromium } from '@playwright/test';
+import { test } from '@playwright/test';
 
-test("@Regression End To End Flow", async () =>{
-    const browser = await chromium.launch({headless : false});
-
-    const page = await browser.newPage();
-
+test("@Regression End To End Flow", async ({ page }) =>{
     await page.goto("https://www.saucedemo.com/");
 
     await page.locator("#user-name").fill("standard_user");
